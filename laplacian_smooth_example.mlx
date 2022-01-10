@@ -1,0 +1,23 @@
+<!DOCTYPE FilterScript>
+<FilterScript>
+ <filter name="Remeshing: Isotropic Explicit Remeshing">
+  <Param name="Iterations" description="Iterations" tooltip="Number of iterations of the remeshing operations to repeat on the mesh." type="RichInt" value="5"/>
+  <Param name="Adaptive" description="Adaptive remeshing" tooltip="Toggles adaptive isotropic remeshing." type="RichBool" value="false"/>
+  <Param name="SelectedOnly" description="Remesh only selected faces" tooltip="If checked the remeshing operations will be applied only to the selected faces." type="RichBool" value="false"/>
+  <Param name="TargetLen" description="Target Length" tooltip="Sets the target length for the remeshed mesh edges." type="RichAbsPerc" value="0.5" min="0" max="45.7771"/>
+  <Param name="FeatureDeg" description="Crease Angle" tooltip="Minimum angle between faces of the original to consider the shared edge as a feature to be preserved." type="RichFloat" value="60"/>
+  <Param name="CheckSurfDist" description="Check Surface Distance" tooltip="If toggled each local operation must deviate from original mesh by [Max. surface distance]" type="RichBool" value="true"/>
+  <Param name="MaxSurfDist" description="Max. Surface Distance" tooltip="Maximal surface deviation allowed for each local operation" type="RichAbsPerc" value="0.45777" min="0" max="45.7771"/>
+  <Param name="SplitFlag" description="Refine Step" tooltip="If checked the remeshing operations will include a refine step." type="RichBool" value="true"/>
+  <Param name="CollapseFlag" description="Collapse Step" tooltip="If checked the remeshing operations will include a collapse step." type="RichBool" value="true"/>
+  <Param name="SwapFlag" description="Edge-Swap Step" tooltip="If checked the remeshing operations will include a edge-swap step, aimed at improving the vertex valence of the resulting mesh." type="RichBool" value="true"/>
+  <Param name="SmoothFlag" description="Smooth Step" tooltip="If checked the remeshing operations will include a smoothing step, aimed at relaxing the vertex positions in a Laplacian sense." type="RichBool" value="true"/>
+  <Param name="ReprojectFlag" description="Reproject Step" tooltip="If checked the remeshing operations will include a step to reproject the mesh vertices on the original surface." type="RichBool" value="true"/>
+ </filter>
+ <filter name="Laplacian Smooth">
+  <Param name="stepSmoothNum" description="Smoothing steps" tooltip="The number of times that the whole algorithm (normal smoothing + vertex fitting) is iterated." type="RichInt" value="4"/>
+  <Param name="Boundary" description="1D Boundary Smoothing" tooltip="Smooth boundary edges only by themselves (e.g. the polyline forming the boundary of the mesh is independently smoothed). This can reduce the shrinking on the border but can have strange effects on very small boundaries." type="RichBool" value="true"/>
+  <Param name="cotangentWeight" description="Cotangent weighting" tooltip="Use cotangent weighting scheme for the averaging of the position. Otherwise the simpler umbrella scheme (1 if the edge is present) is used." type="RichBool" value="true"/>
+  <Param name="Selected" description="Affect only selection" tooltip="If checked the filter is performed only on the selected area" type="RichBool" value="false"/>
+ </filter>
+</FilterScript>
